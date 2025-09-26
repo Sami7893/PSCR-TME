@@ -1,3 +1,5 @@
+//FAUTE : il manqué l'include de List.h
+#include "List.h"
 
 namespace pr {
 
@@ -8,14 +10,20 @@ size_t Chainon::length() {
 	size_t len = 1;
 	if (next != nullptr) {
 		len += next->length();
+	}else{
+		//FAUTE :boucle infinie
+		return len;
 	}
 	return length();
 }
 
-void Chainon::print (std::ostream & os) {
+void Chainon::print (std::ostream & os) const{
 	os << data ;
 	if (next != nullptr) {
 		os << ", ";
+	}else{
+		//FAUTE :boucle infinie
+		return;
 	}
 	next->print(os);
 }
@@ -44,8 +52,8 @@ void List::push_back (const std::string& val) {
 void List::push_front (const std::string& val) {
 	tete = new Chainon(val,tete);
 }
-
-bool empty() {
+//FAUTE : manque le List::
+bool List::empty() {
 	return tete == nullptr;
 }
 
@@ -57,8 +65,6 @@ size_t List::size() const {
 	}
 }
 
-} // namespace pr
-
 std::ostream & operator<< (std::ostream & os, const pr::List & vec)
 {
 	os << "[";
@@ -69,3 +75,4 @@ std::ostream & operator<< (std::ostream & os, const pr::List & vec)
 	return os;
 }
 
+} //FAUTE : namespace pr prenant pas en compte operator<<
