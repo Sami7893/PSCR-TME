@@ -37,7 +37,7 @@ public:
 
 	void push_front (const std::string& val);
 
-	bool empty() ;
+	bool empty() const ;
 
 	size_t size() const ;
 };

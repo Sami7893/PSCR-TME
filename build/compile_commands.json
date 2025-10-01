@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/PSCR-TME/build",
+  "command": "/usr/bin/g++  -I/home/PSCR-TME/TME1/TestListe/src -g -Wall -Wextra -pedantic -O0 -std=c++20 -o CMakeFiles/TestList.dir/src/main.cpp.o -c /home/PSCR-TME/TME1/TestListe/src/main.cpp",
+  "file": "/home/PSCR-TME/TME1/TestListe/src/main.cpp",
+  "output": "CMakeFiles/TestList.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/PSCR-TME/build",
+  "command": "/usr/bin/g++  -I/home/PSCR-TME/TME1/TestListe/src -g -Wall -Wextra -pedantic -O0 -std=c++20 -o CMakeFiles/TestList.dir/src/List.cpp.o -c /home/PSCR-TME/TME1/TestListe/src/List.cpp",
+  "file": "/home/PSCR-TME/TME1/TestListe/src/List.cpp",
+  "output": "CMakeFiles/TestList.dir/src/List.cpp.o"
+}
+]

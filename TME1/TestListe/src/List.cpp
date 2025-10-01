@@ -7,25 +7,21 @@ namespace pr {
 Chainon::Chainon (const std::string & data, Chainon * next):data(data),next(next) {};
 
 size_t Chainon::length() {
-	size_t len = 1;
+	//FAUTE :boucle infinie
 	if (next != nullptr) {
-		len += next->length();
+		return 1+next->length();
 	}else{
-		//FAUTE :boucle infinie
-		return len;
+		return 1;
 	}
-	return length();
 }
 
 void Chainon::print (std::ostream & os) const{
 	os << data ;
 	if (next != nullptr) {
 		os << ", ";
-	}else{
+		next->print(os);
 		//FAUTE :boucle infinie
-		return;
 	}
-	next->print(os);
 }
 
 // ******************  List
@@ -53,7 +49,7 @@ void List::push_front (const std::string& val) {
 	tete = new Chainon(val,tete);
 }
 //FAUTE : manque le List::
-bool List::empty() {
+bool List::empty() const {
 	return tete == nullptr;
 }
 

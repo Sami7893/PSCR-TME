@@ -53,5 +53,6 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/PSCR-TME/TME1/TestListe"
 }

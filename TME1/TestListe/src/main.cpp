@@ -10,10 +10,11 @@ int main () {
 	str[0] = 'a';
 	str[1] = 'b';
 	str[2] = 'c';
+	str[3] = '\0';
 	int i = 0;
 
 	if (! strcmp (str, abc.c_str())) {
-		std::cout << "Equal !";
+		std::cout << "Equal !"<<std::endl;
 	}
 
 	pr::List list;
@@ -29,10 +30,24 @@ int main () {
 	}
 
 	// liberer les char de la chaine
-	for (char *cp = str ; *cp ; cp++) {
-		delete cp;
-	}
 	// et la chaine elle meme
-	delete str;
+	//FAUTE : on delete seulement str le contenue est automatiquement deleted
+	delete[] str;
 
 }
+
+/*
+Equal !
+Liste : [abc, abc]
+Taille : 2
+elt 1: abc
+==7455== 
+==7455== HEAP SUMMARY:
+==7455==     in use at exit: 0 bytes in 0 blocks
+==7455==   total heap usage: 5 allocs, 5 frees, 74,836 bytes allocated
+==7455== 
+==7455== All heap blocks were freed -- no leaks are possible
+==7455== 
+==7455== For lists of detected and suppressed errors, rerun with: -s
+==7455== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+*/
