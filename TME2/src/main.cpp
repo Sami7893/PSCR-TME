@@ -22,9 +22,9 @@ int main(int argc, char** argv) {
 	using namespace std::chrono;
 
 	// Allow filename as optional first argument, default to project-root/WarAndPeace.txt
-	// Optional second argument is mode (e.g. "count" or "unique").
+	// Optional second argument is mode (e.g. "count" or "unique" or "frequence").
 	string filename = "../WarAndPeace.txt";
-	string mode = "count";
+	string mode = "frequence";
 	if (argc > 1) filename = argv[1];
 	if (argc > 2) mode = argv[2];
 
@@ -48,13 +48,14 @@ int main(int argc, char** argv) {
 		while (input >> word) {
 			// élimine la ponctuation et les caractères spéciaux
 			word = cleanWord(word);
-
+			/*
 			// word est maintenant "tout propre"
 			if (nombre_lu % 100 == 0)
 				// on affiche un mot "propre" sur 100
-				cout << nombre_lu << ": "<< word << endl;
+				cout << nombre_lu << ": "<< word << endl;*/
 			nombre_lu++;
 		}
+	
 	input.close();
 	cout << "Finished parsing." << endl;
 	cout << "Found a total of " << nombre_lu << " words." << endl;
@@ -62,18 +63,53 @@ int main(int argc, char** argv) {
 	} else if (mode == "unique") {
 		// skeleton for unique mode
 		// before the loop: declare a vector "seen"
-		// TODO
+		std::vector<string> seen;
 
 		while (input >> word) {
 			// élimine la ponctuation et les caractères spéciaux
 			word = cleanWord(word);
-
 			// add to seen if it is new
-			// TODO
+			bool b = false;
+			for(auto& w : seen){
+				if(w==word){
+					b=true;
+				}
+			}
+			if(!b)seen.push_back(word);
 		}
 	input.close();
 	// TODO
-	// cout << "Found " << seen.size() << " unique words." << endl;
+	cout << "Found " << seen.size() << " unique words." << endl;
+
+	} else if (mode == "frequence") {
+		std::vector<std::pair<string,int>> freq;
+		std::pair<string,int> mot;
+
+		while (input >> word) {
+			// élimine la ponctuation et les caractères spéciaux
+			word = cleanWord(word);
+			bool b = false;
+			for(std::pair<string,int>& w : freq){
+				if(w.first==word){
+					b=true;
+					++w.second;
+					break;
+				}
+			}
+			if(!b)freq.push_back({word, 1});
+		}
+	input.close();
+	// TODO
+	for(std::pair<string,int>& f : freq){
+		if(f.first == "war" or f.first == "peace" or f.first == "toto")
+		cout << f.first << " : " << f.second << endl;
+	}
+
+	std::sort(freq.begin(), freq.end(), [] (std::pair<string,int>& a, std::pair<string,int>& b) { return a.second < b.second ;});
+	
+	for(std::pair<string,int>& f : freq){
+		cout << f.first << " : " << f.second << endl;
+	}
 
 	} else {
 		// unknown mode: print usage and exit

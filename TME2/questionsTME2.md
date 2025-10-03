@@ -5,11 +5,11 @@ Instructions : copiez vos réponses dans ce fichier (sous la question correspond
 1) Exécutez le programme (mode `count`) sur le fichier fourni. Combien y a-t-il de mots dans le livre ?
 
 Réponse (collez une trace ici) :
-
-```
-trace
-```
-
+"""
+Finished parsing.
+Found a total of 566193 words.
+Total runtime (wall clock) : 1820 ms
+"""
 
 2) Comment le temps d'exécution est-il impacté par les variations suivantes ?
 
@@ -20,13 +20,31 @@ trace
 Réponse :
 
 Runtime debug avec trace :
-
+"""
+Finished parsing.
+Found a total of 566193 words.
+Total runtime (wall clock) : 1820 ms
+"""
 Runtime debug sans trace :
-
+"""
+Parsing ../WarAndPeace.txt (mode=count)
+Finished parsing.
+Found a total of 566193 words.
+Total runtime (wall clock) : 1696 ms
+"""
 Runtime release avec trace :
-
+"""
+Finished parsing.
+Found a total of 566193 words.
+Total runtime (wall clock) : 214 ms
+"""
 Runtime release sans trace :
-
+"""
+Parsing ../WarAndPeace.txt (mode=count)
+Finished parsing.
+Found a total of 566193 words.
+Total runtime (wall clock) : 141 ms
+"""
 (mesures nfs vs tmp si à la ppti)
 
 3) Implémentez un nouveau mode "unique", en vous aidant du squelette fourni. 
@@ -36,7 +54,9 @@ Exécutez le programme sur le fichier WarAndPeace.txt fourni. Combien y a-t-il d
 Réponse (collez une trace ici) :
 
 ```
-trace
+Parsing ../WarAndPeace.txt (mode=unique)
+Found 20333 unique words.
+Total runtime (wall clock) : 9448 ms
 ```
 
 4) Modifiez le programme pour introduire le mode "freq" qui calcule le nombre d'occurrences de chaque mot (fréquence). 
@@ -44,8 +64,12 @@ Pour cela, on adaptera le code précédent pour utiliser un vecteur qui stocke d
 Afficher le nombre d'occurrences des mots "war", "peace" et "toto".
 
 Réponse :
-
-
+"""
+Parsing ../WarAndPeace.txt (mode=frequence)
+war : 298
+peace : 114
+Total runtime (wall clock) : 2041 ms
+"""
 5) Trier ce vecteur de paires par nombre d'occurrences décroissantes à l'aide de `std::sort` puis afficher les dix mots les plus fréquents. 
 
 `std::sort` prend les itérateurs de début et fin de la zone à trier, et un prédicat binaire. Voir l'exemple suivant.
@@ -74,13 +98,20 @@ int main_sort () {
 ```
 
 Réponse :
-
-
+```CPP
+std::sort(freq.begin(), freq.end(), [] (std::pair<string,int>& a, std::pair<string,int>& b) { return a.second < b.second ;});
+	
+	for(std::pair<string,int>& f : freq){
+		cout << f.first << " : " << f.second << endl;
+	}
+```
 6) Quelle est la complexité de ce code en temps et mémoire ? Donnez une trace avec temps d'exécution en mode release.
 
 
 Réponse :
-
+complexité temporelle O(N²)
+complexité spatiale(N)
+Total runtime (wall clock) : 2135 ms
 
 
 7) Implantez une table de hash simple en partant du squelette fourni HashMap.h:
