@@ -20,6 +20,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -DNDEBUG -flto")
 # Add the executable (only main.cpp exists for now).
 add_executable(TME2
     src/main.cpp
+    src/HashMap.h
 )
 
 # Specify include directories.

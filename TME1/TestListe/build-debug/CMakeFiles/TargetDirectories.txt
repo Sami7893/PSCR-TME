@@ -1,3 +1,3 @@
-/home/PSCR-TME/TME1/TestListe/build-debug/CMakeFiles/TestList.dir
-/home/PSCR-TME/TME1/TestListe/build-debug/CMakeFiles/edit_cache.dir
-/home/PSCR-TME/TME1/TestListe/build-debug/CMakeFiles/rebuild_cache.dir
+/home/sam/PSCR/PSCR-TME/TME1/TestListe/build-debug/CMakeFiles/TestList.dir
+/home/sam/PSCR/PSCR-TME/TME1/TestListe/build-debug/CMakeFiles/edit_cache.dir
+/home/sam/PSCR/PSCR-TME/TME1/TestListe/build-debug/CMakeFiles/rebuild_cache.dir

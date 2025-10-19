@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/PSCR-TME/TME2/src
+CXX_INCLUDES = -I/home/sam/PSCR/PSCR-TME/TME2/src
 
 CXX_FLAGS = -O3 -Wall -DNDEBUG -flto -std=c++20
 

@@ -1,6 +1,8 @@
 CMakeFiles/TestList.dir/src/main.cpp.o: \
- /home/PSCR-TME/TME1/TestListe/src/main.cpp /usr/include/stdc-predef.h \
- /home/PSCR-TME/TME1/TestListe/src/List.h /usr/include/c++/13/cstddef \
+ /home/sam/PSCR/PSCR-TME/TME1/TestListe/src/main.cpp \
+ /usr/include/stdc-predef.h \
+ /home/sam/PSCR/PSCR-TME/TME1/TestListe/src/List.h \
+ /usr/include/c++/13/cstddef \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \

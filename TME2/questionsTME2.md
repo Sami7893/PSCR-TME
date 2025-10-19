@@ -120,7 +120,7 @@ Total runtime (wall clock) : 2135 ms
  * Implantez le constructeur de la classe et l'opération size (remplissage actuel)
  * Implantez les deux méthodes principales, à la sémantique proche de Java.
 
- ```
+ ```CPP
  // Return pointer to value associated with key, or nullptr if not found.
  V* get(const K& key);
 
@@ -135,14 +135,36 @@ Réponse : Dans le fichier HashMap.h
 
 Réponse : tracer les temps
 
+Taille de HashMap : 1024
+Total runtime (wall clock) : 338 ms
+
+Taille de HashMap : 100
+Total runtime (wall clock) : 1161 ms
+
+Taille de HashMap : 10000
+Total runtime (wall clock) : 237 ms
+
 9) On souhaite comme dans la version précédente afficher les 10 mots les plus fréquents.
 Ajoutez dans la table de hash une fonction `std::vector<std::pair<K,V>> toKeyValuePairs() const` qui convertit les entrées de la table en un vecteur de paires. Pour celà on parcourt chaque liste de chaque bucket. Contrôlez les résultats par rapport à la version "freq" simple.
 
 Réponse : une trace
 
+the : 34562
+and : 22148
+to : 16709
+of : 14990
+a : 10513
+he : 9809
+in : 8800
+his : 7965
+that : 7806
+was : 7327
+Taille de HashMap : 10000
+Total runtime (wall clock) : 267 ms
+
 10) Ecrire un nouveau mode "freqstd" qui s'appuie sur la classe du standard `std::unordered_map` pour faire la même chose que "freqhash". Pour la partie extraction des entrées vers un vecteur pour les trier, on peut simplement itérer la table (même s'il y a d'autres méthodes comme `std::copy`)
 
-```
+```CPP
 unordered_map<string,int> map;
 for (const pair<string,int> & entry : map) {
     cout << "Key:" << entry.first << " Value " << entry.second << "\n";
@@ -153,7 +175,11 @@ Remesurer les performances avec cette version.
 
 Réponse :
 
+Total runtime (wall clock) : 268 ms
+
 11) Conclure sur la qualité de notre structure de données maison.
+
+On constate qu'on obtient quasiment les memes temps avec les map de la classe standard qu'avec la hashMap custom. Donc, c'est de bonne qualité.
 
 12) BONUS: Si la taille actuelle est supérieure ou égale à 80\% du nombre de buckets, la table est considérée surchargée :
  la plupart des accès vont nécessiter d'itérer des listes. On souhaite dans ce cas doubler la taille d'allocation (nombre de buckets).  Ecrivez une fonction membre \texttt{void grow()} qui agrandit (double le nombre de buckets) d'une table contenant déjà des éléments.  Quelle est la complexité de cette réindexation ?

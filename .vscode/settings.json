@@ -54,5 +54,6 @@
         "streambuf": "cpp",
         "typeinfo": "cpp"
     },
-    "cmake.sourceDirectory": "/home/PSCR-TME/TME1/TestListe"
+    "cmake.sourceDirectory": "/home/sam/PSCR/PSCR-TME/TME2",
+    "C_Cpp.default.compilerPath": "/usr/bin/g++-13"
 }

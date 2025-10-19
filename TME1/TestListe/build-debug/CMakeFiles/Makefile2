@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/PSCR-TME/TME1/TestListe
+CMAKE_SOURCE_DIR = /home/sam/PSCR/PSCR-TME/TME1/TestListe
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/PSCR-TME/TME1/TestListe/build-debug
+CMAKE_BINARY_DIR = /home/sam/PSCR/PSCR-TME/TME1/TestListe/build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/TestList.dir/clean
 CMakeFiles/TestList.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestList.dir/build.make CMakeFiles/TestList.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestList.dir/build.make CMakeFiles/TestList.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/PSCR-TME/TME1/TestListe/build-debug/CMakeFiles --progress-num=1,2,3 "Built target TestList"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sam/PSCR/PSCR-TME/TME1/TestListe/build-debug/CMakeFiles --progress-num=1,2,3 "Built target TestList"
 .PHONY : CMakeFiles/TestList.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TestList.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/PSCR-TME/TME1/TestListe/build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sam/PSCR/PSCR-TME/TME1/TestListe/build-debug/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TestList.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/PSCR-TME/TME1/TestListe/build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sam/PSCR/PSCR-TME/TME1/TestListe/build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/TestList.dir/rule
 
 # Convenience name for target.

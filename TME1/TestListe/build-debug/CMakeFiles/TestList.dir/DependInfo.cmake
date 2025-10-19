@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/PSCR-TME/TME1/TestListe/src/List.cpp" "CMakeFiles/TestList.dir/src/List.cpp.o" "gcc" "CMakeFiles/TestList.dir/src/List.cpp.o.d"
-  "/home/PSCR-TME/TME1/TestListe/src/main.cpp" "CMakeFiles/TestList.dir/src/main.cpp.o" "gcc" "CMakeFiles/TestList.dir/src/main.cpp.o.d"
+  "/home/sam/PSCR/PSCR-TME/TME1/TestListe/src/List.cpp" "CMakeFiles/TestList.dir/src/List.cpp.o" "gcc" "CMakeFiles/TestList.dir/src/List.cpp.o.d"
+  "/home/sam/PSCR/PSCR-TME/TME1/TestListe/src/main.cpp" "CMakeFiles/TestList.dir/src/main.cpp.o" "gcc" "CMakeFiles/TestList.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

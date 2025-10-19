@@ -1,3 +1,3 @@
-/home/PSCR-TME/TME2/build-debug/CMakeFiles/TME2.dir
-/home/PSCR-TME/TME2/build-debug/CMakeFiles/edit_cache.dir
-/home/PSCR-TME/TME2/build-debug/CMakeFiles/rebuild_cache.dir
+/home/sam/PSCR/PSCR-TME/TME2/build-debug/CMakeFiles/TME2.dir
+/home/sam/PSCR/PSCR-TME/TME2/build-debug/CMakeFiles/edit_cache.dir
+/home/sam/PSCR/PSCR-TME/TME2/build-debug/CMakeFiles/rebuild_cache.dir

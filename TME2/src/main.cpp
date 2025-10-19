@@ -5,6 +5,8 @@
 #include <string>
 #include <algorithm>
 #include <vector>
+#include "HashMap.h"
+#include <unordered_map>
 
 // helper to clean a token (keep original comments near the logic)
 static std::string cleanWord(const std::string& raw) {
@@ -98,20 +100,125 @@ int main(int argc, char** argv) {
 			}
 			if(!b)freq.push_back({word, 1});
 		}
-	input.close();
+		
+		int nbWar = 0, nbPeace = 0, nbToto = 0;
+		for (auto &pair :freq)
+		{
+			if (pair.first == "war")
+			{
+				nbWar = pair.second;
+			}
+			if (pair.first == "toto")
+			{
+				nbToto = pair.second;
+			}
+			if (pair.first == "peace")
+			{
+				nbPeace = pair.second;
+			}
+		}
+
+		cout << "Nombre de War " << nbWar << endl;
+		cout << "Nombre de Peace " << nbPeace << endl;
+		cout << "Nombre de Toto " << nbToto << endl;
+		input.close();
 	// TODO
-	for(std::pair<string,int>& f : freq){
-		if(f.first == "war" or f.first == "peace" or f.first == "toto")
-		cout << f.first << " : " << f.second << endl;
-	}
-
-	std::sort(freq.begin(), freq.end(), [] (std::pair<string,int>& a, std::pair<string,int>& b) { return a.second < b.second ;});
+	std::sort(freq.begin(), freq.end(), [] (std::pair<string,int>& a, std::pair<string,int>& b) { return a.second > b.second ;});
 	
-	for(std::pair<string,int>& f : freq){
-		cout << f.first << " : " << f.second << endl;
+	for (size_t i = 0; i < 10; i++){
+			cout << freq[i].first << " : " << freq[i].second << endl;
 	}
 
-	} else {
+	}else if (mode == "freq_sort"){
+		vector<pair<string, int>> seen;
+		while (input >> word)
+		{
+			// élimine la ponctuation et les caractères spéciaux
+			word = cleanWord(word);
+			// add to seen if it is new
+			bool vue = false;
+			for (auto &pair : seen)
+			{
+				if (pair.first == word)
+				{
+					vue = true;
+					pair.second++;
+					break;
+				}
+			}
+			if (vue == false)
+			{
+				seen.push_back({word, 1});
+			}
+		}
+
+		sort(seen.begin(), seen.end(), [](const pair<string, int> &a, const pair<string, int> b)
+			 { return a.second > b.second; });
+		for (size_t i = 0; i < 10; i++)
+		{
+			cout << seen[i].first << " : " << seen[i].second << endl;
+		}
+		input.close();
+	
+	}else if (mode == "freqhash"){
+		int nbucket = 10000;
+		HashMap<string, int> hmap(nbucket);
+
+		while (input >> word)
+		{
+			// élimine la ponctuation et les caractères spéciaux
+			word = cleanWord(word);
+			int *freq = hmap.get(word);
+
+			// Le mot est déjà présent dans la hash
+			if (freq != nullptr)
+			{
+				// Incrémenter la fréquence
+				hmap.put(word, *freq + 1);
+			}
+			// Le mot n'est pas présent
+			else
+			{
+				// L'insérer avec 1 de fréquence
+				hmap.put(word, 1);
+			}
+		}
+		std::vector<std::pair<string, int>> vect_pair = hmap.toKeyValuePairs();
+		sort(vect_pair.begin(), vect_pair.end(), [](const pair<string, int> &a, const pair<string, int> b)
+			 { return a.second > b.second; });
+
+		for (size_t i = 0; i < 10; i++)
+		{
+			cout << vect_pair[i].first << " : " << vect_pair[i].second << endl;
+		}
+		cout << "Taille de HashMap : " << nbucket << endl;
+
+		input.close();
+	
+	}else if (mode == "freqstd"){
+		std::unordered_map<std::string, int> map;
+
+		while (input >> word)
+		{
+			word = cleanWord(word);
+			++map[word];
+		}
+
+		std::vector<std::pair<std::string, int>> vec;
+		for (const auto &entry : map)
+		{
+			vec.push_back(entry);
+		}
+
+		sort(vec.begin(), vec.end(), [](const pair<string, int> &a, const pair<string, int> b)
+			 { return a.second > b.second; });
+
+		for (size_t i = 0; i < vec.size() && i < 10; ++i)
+		{
+			cout << vec[i].first << " : " << vec[i].second << endl;
+		}
+		input.close();
+	}else{
 		// unknown mode: print usage and exit
 		cerr << "Unknown mode '" << mode << "'. Supported modes: count, unique" << endl;
 		input.close();
