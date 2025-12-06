@@ -52,7 +52,20 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "charconv": "cpp",
+        "codecvt": "cpp",
+        "condition_variable": "cpp",
+        "set": "cpp",
+        "optional": "cpp",
+        "format": "cpp",
+        "iomanip": "cpp",
+        "mutex": "cpp",
+        "semaphore": "cpp",
+        "span": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp",
+        "variant": "cpp"
     },
     "cmake.sourceDirectory": "/home/sam/PSCR/PSCR-TME/TME2",
     "C_Cpp.default.compilerPath": "/usr/bin/g++-13"
