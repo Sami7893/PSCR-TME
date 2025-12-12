@@ -4,6 +4,7 @@
 #include <cstring>
 using namespace std;
 
+//reprise du td
 void fullwrite(int fd, const char* data, size_t size){
     size_t len = 0;
     while(len < size){
@@ -54,4 +55,4 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 //Q2
-//
+// Oui

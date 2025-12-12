@@ -174,7 +174,22 @@ public:
     }
 
     void renderPoolPixel(const Scene& scene, Image& img, int nbthread){
+        // les points de l'ecran, en coordonnées 3D, au sein de la Scene.
+        // on tire un rayon de l'observateur vers chacun de ces points
+        
+        Pool pool = Pool(36);
+        pool.start(nbthread);
+       
 
+        // pour chaque pixel, calculer sa couleur
+        for (int x = 0; x < scene.getWidth(); x++) {
+            for (int y = 0; y < scene.getHeight(); y++) {
+                PixelJob  *j = new PixelJob( scene, img, x, y);
+                pool.submit(j);
+            }
+        }
+
+        pool.stop();
     }
 };
 

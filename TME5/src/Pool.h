@@ -44,7 +44,13 @@ public:
 
 private:
 	// worker thread function
-	void worker() { //todo
+	void worker() {
+		while(true){
+			Job* j = queue.pop();
+			if(j==nullptr)break;
+			j->run();
+			delete j;
+		}
 	}
 };
 

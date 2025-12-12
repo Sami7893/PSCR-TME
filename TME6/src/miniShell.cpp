@@ -1,8 +1,8 @@
 /*
 trace for Question 5 (fork/execvp/wait):
 $ ./miniShell 
-mini-shell> echo "Hello Wilson"
-"Hello Wilson"
+mini-shell> echo "Hello"
+"Hello"
 mini-shell> ls
 CMakeCache.txt  cmake_install.cmake  Makefile
 CMakeFiles      combat               miniShell

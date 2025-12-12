@@ -38,8 +38,9 @@ void attaque (pid_t adversaire){
         perror("sigaction");
         exit(2);
     }
-    //useless maintenant
+    
     if(kill(adversaire,SIGUSR1)==-1){
+        //useless maintenant
         if(isVador){
         const char* msg ="Vador : Luke, I am your father\n";
         write(STDOUT_FILENO, msg, strlen(msg));

@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <mutex>
+#include <condition_variable>
 
 namespace pr {
 
@@ -49,7 +50,7 @@ public:
 	T* pop() {
 		std::unique_lock<std::mutex> lg(m_);
 		while (empty() && isBlocking) {
-			cv.wait(lck);
+			cv.wait(lg);
 		}
 		if (empty()) {
 			return nullptr;
@@ -57,16 +58,16 @@ public:
 		if (full()) {
 			cv.notify_all();
 		}
-		auto ret = tab[begin];
-		tab[begin] = nullptr;
-		sz--;
-		begin = (begin + 1) % allocsize;
+		auto ret = tab_[begin_];
+		tab_[begin_] = nullptr;
+		size_--;
+		begin_ = (begin_ + 1) % allocsize_;
 		return ret;
 	}
 	bool push(T* elt) {
 		std::unique_lock<std::mutex> lg(m_);
 		while (full() && isBlocking) {
-			cv.wait(lck);
+			cv.wait(lg);
 		}
 		if (full()) {
 			return false;
@@ -74,8 +75,8 @@ public:
 		if (empty()) {
 			cv.notify_all();
 		}
-		tab[(begin + sz) % allocsize] = elt;
-		sz++;
+		tab_[(begin_ + size_) % allocsize_] = elt;
+		size_++;
 		return true;
 	}
 	~Queue() {
